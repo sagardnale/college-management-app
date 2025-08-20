@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -14,13 +15,17 @@ export class SignupComponent {
   role:['',[Validators.required]],
   className:['']
  })
-  constructor(private readonly fb: FormBuilder){
+  constructor(private readonly fb: FormBuilder,private readonly authService:AuthService){
 
  }
  get f(){
   return this.signupForm.controls;
  }
  onSignup(){
+  if(this.signupForm.valid){
+    this.authService.signup(this.signupForm.value as any);
+     alert('Signup successful! Please login.');
+  }
   console.log(this.signupForm.value);
  }
 }
