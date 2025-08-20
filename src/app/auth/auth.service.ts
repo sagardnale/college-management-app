@@ -30,4 +30,12 @@ export class AuthService {
     newUser.id = this.users.length + 1;
     this.users.push(newUser);
   }
+
+  getUser(){
+    return this.currentUser;
+  }
+  logout(){
+    this.currentUser = null;
+    this.router.navigate(['/login']);
+  }
 }
