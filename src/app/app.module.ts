@@ -5,12 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { PrincipalDashboardComponent } from './dashboard/principal-dashboard/principal-dashboard.component';
+import { TeacherDashboardComponent } from './dashboard/teacher-dashboard/teacher-dashboard.component';
+import { StudentDashboardComponent } from './dashboard/student-dashboard/student-dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    PrincipalDashboardComponent,
+    TeacherDashboardComponent,
+    StudentDashboardComponent
   ],
   imports: [
     BrowserModule,
