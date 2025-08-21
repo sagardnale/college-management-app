@@ -5,14 +5,14 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { PrincipalDashboardComponent } from './dashboard/principal-dashboard/principal-dashboard.component';
 import { TeacherDashboardComponent } from './dashboard/teacher-dashboard/teacher-dashboard.component';
 import { StudentDashboardComponent } from './dashboard/student-dashboard/student-dashboard.component';
-
+import { AuthGuard } from './auth/auth.guard';
 const routes: Routes = [
   {path:"",component:LoginComponent},
   {path:"login",component:LoginComponent},
   {path:"signup",component:SignupComponent},
-  {path:"principal",component:PrincipalDashboardComponent},
-  {path:"teacher",component:TeacherDashboardComponent},
-  {path:"student",component:StudentDashboardComponent}
+  {path:"principal",component:PrincipalDashboardComponent,canActivate:[AuthGuard],data:{role:'principal'}},
+  {path:"teacher",component:TeacherDashboardComponent,canActivate:[AuthGuard],data:{role:'teacher'}},
+  {path:"student",component:StudentDashboardComponent,canActivate:[AuthGuard],data:{role:'student'}}
 ];
 
 @NgModule({
